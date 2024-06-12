@@ -27,3 +27,12 @@ Enjoy!
 7. Create a Desktop GUI Application.
 8. World Domination.
 9. Have a child named Steve.
+
+
+## Directories
+
+|   Location     |   About   |
+|   :---         |   :---     |
+| [src](./src/README.md) | Source code.
+| [resources](./resources/README.md) | Resources used throughout the project.
+
