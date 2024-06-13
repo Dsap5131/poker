@@ -21,20 +21,17 @@ Enjoy!
 The following commands to run the project must be run from the project root 
 directory. This project has only been tested on Debian 12.
 
-To lint the code use command
-```
-make lint
-```
+To test the code use command\
+`make test`
 
-To create the environment for running use command
-```
-make setup
-```
+To lint the code use command\
+`make lint`
 
-To clean up the environment use command
-```
-make clean
-```
+To create the environment for running use command\
+`make setup`
+
+To clean up the environment use command\
+`make clean`
 
 ## TODO
 1. Create Server using a language I know (Probably Python).
@@ -51,7 +48,8 @@ make clean
 
 |   Location     |   About   |
 |   :---         |   :---     |
-|   [LICENSE](./LICENSE) | MIT License.
-|   [src](./src/README.md) | Source code.
-|   [resources](./resources/README.md) | Resources used throughout the project.
+|   [LICENSE](./LICENSE) | MIT License
+|   [src](./src/README.md) | Source code
+|   [testing](./testing/README.md) | Tests
+|   [resources](./resources/README.md) | Resources used throughout the project
 |   [Makefile](./Makefile) | Makefile for shortcuts

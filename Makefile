@@ -13,3 +13,7 @@ clean:
 
 lint: setup
 	${VENV}/bin/pylint src/ --exit-zero
+	${VENV}/bin/pylint testing/ --exit-zero
+
+test: lint
+	${PYTHON} -m pytest testing/
