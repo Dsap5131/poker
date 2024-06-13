@@ -18,6 +18,14 @@ Enjoy!
 
 ## Running
 
+The following commands to run the project must be run from the project root 
+directory.
+
+To lint the code use command
+```
+make lint
+```
+
 To create the environment for running use command
 ```
 make setup
@@ -27,7 +35,6 @@ To clean up the environment use command
 ```
 make clean
 ```
-
 
 ## TODO
 1. Create Server using a language I know (Probably Python).
