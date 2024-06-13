@@ -19,7 +19,7 @@ Enjoy!
 ## Running
 
 The following commands to run the project must be run from the project root 
-directory.
+directory. This project has only been tested on Debian 12.
 
 To lint the code use command
 ```
