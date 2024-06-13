@@ -16,4 +16,4 @@ lint: setup
 	${VENV}/bin/pylint testing/ --exit-zero
 
 test: lint
-	${PYTHON} -m pytest testing/
+	${VENV}/bin/coverage run -m pytest testing/
