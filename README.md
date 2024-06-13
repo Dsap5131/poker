@@ -33,6 +33,7 @@ Enjoy!
 
 |   Location     |   About   |
 |   :---         |   :---     |
+| [LICENSE](./LICENSE) | MIT License.
 | [src](./src/README.md) | Source code.
 | [resources](./resources/README.md) | Resources used throughout the project.
 
