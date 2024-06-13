@@ -1,7 +1,7 @@
 # Poker
 Hello Reader! Welcome to my passion project of Poker! 
 
-I am full-time Healthcare Data Product Analyst and a part-time graduate 
+I am a full-time Healthcare Data Product Analyst and a part-time graduate 
 student at Northeastern Unviersity pursuing a Master's degree in Bioinformatics 
 with a concentration in Data Analytics. I have a Bachelor's in Computer Science 
 with a concentration in AI from Northeastern University. This project is a way 
