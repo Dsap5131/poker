@@ -1,8 +1,8 @@
 """Code for a playing card"""
 
 from typing import Self
-from suit import Suit
-from rank import Rank
+from src.common.suit import Suit
+from src.common.rank import Rank
 
 class Card():
     """Represents a playing card.
