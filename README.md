@@ -35,16 +35,15 @@ To clean up the environment use command\
 
 ## TODO
 1. Update src/common code in order to pass testing
-2. Improve Makefile clean in order to clean downstream directories
-3. Create Server using a language I know (Probably Python).
-4. Create a Simple Text Client using a language I know (Probably Python).
-5. Create a strong CI/CD pipeline.
-6. Create Database to store long term client and game history data. 
-7. Recreate Server in a more appropriate language (maybe Rust).
-8. Create a Website that acts as a client.
-9. Create a Desktop GUI Application.
-10. World Domination.
-11. Have a child named Steve.
+2. Create Server using a language I know (Probably Python).
+3. Create a Simple Text Client using a language I know (Probably Python).
+4. Create a strong CI/CD pipeline.
+5. Create Database to store long term client and game history data. 
+6. Recreate Server in a more appropriate language (maybe Rust).
+7. Create a Website that acts as a client.
+8. Create a Desktop GUI Application.
+9. World Domination.
+10. Have a child named Steve.
 
 ## Directories
 
