@@ -1,6 +1,7 @@
 """Code for a playing card"""
 
 from typing import Self
+
 from src.common.suit import Suit
 from src.common.rank import Rank
 
@@ -12,8 +13,21 @@ class Card():
     """
 
     def __init__(self: Self, rank: Rank, suit: Suit) -> None:
+
+        self.__test_constructor_parameters(rank, suit)
         self.__rank = rank
         self.__suit = suit
+
+
+    def __test_constructor_parameters(self: Self,
+                                      rank: Rank,
+                                      suit: Suit) -> None:
+        """Check the parameters passed to __init__"""
+
+        if not isinstance(rank, Rank):
+            raise TypeError("rank must be type Rank.")
+        if not isinstance(suit, Suit):
+            raise TypeError("suit must be type Suit.")
 
 
     def get_rank(self: Self) -> Rank:

@@ -10,5 +10,5 @@ Source Code
 
 |   Location    |   About   |
 |   :---        |   :---    |
-|   [Server](./Server/README.md) | Code and documentation for the Server  
-|   [Common](./Common/README.md) | Code and documentation for Common elements
+|   [server](./server/README.md) | Code and documentation for the Server  
+|   [common](./common/README.md) | Code and documentation for Common elements
