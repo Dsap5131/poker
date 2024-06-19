@@ -9,4 +9,5 @@ the referee and player to understand in order to run.
 |   :---        |   :---    |
 |   [suit.py](./suit.py) | Suit of a playing card
 |   [rank.py](./rank.py) | Rank of a playing card
-|   [card.py](./card.py) | Playing Card
+|   [card.py](./card.py) | Playing card
+|   [hand.py](./hand.py) | A set of players set of cards

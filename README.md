@@ -34,7 +34,7 @@ To clean up the environment use command\
 `make clean`
 
 ## TODO
-1. Update src/common code in order to pass testing
+1. Fully design and implement Board.
 2. Create Server using a language I know (Probably Python).
 3. Create a Simple Text Client using a language I know (Probably Python).
 4. Create a strong CI/CD pipeline.
