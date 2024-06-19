@@ -18,3 +18,4 @@ lint: setup
 
 test: lint
 	${VENV}/bin/coverage run -m pytest testing/
+	${VENV}/bin/coverage report -m
