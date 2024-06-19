@@ -2,3 +2,4 @@ environment/
 __pycache__/
 .coverage
 .pytest_cache
+htmlcov/

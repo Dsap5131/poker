@@ -11,6 +11,7 @@ clean:
 	rm -rf ${VENV}
 	rm -rf .coverage
 	find . -depth -name '__pycache__' -type d -exec rm -r "{}" \;
+	rm -rf htmlcov
 
 lint: setup
 	${VENV}/bin/pylint src/ --exit-zero
