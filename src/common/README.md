@@ -1,6 +1,6 @@
-# Common
+# common
 
-The Common directory represents code and documentation that is meant for both
+The common directory represents code and documentation that is meant for both
 the referee and player to understand in order to run.
 
 ## Directories

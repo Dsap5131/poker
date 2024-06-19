@@ -34,15 +34,16 @@ To clean up the environment use command\
 `make clean`
 
 ## TODO
-1. Create Server using a language I know (Probably Python).
-2. Create a Simple Text Client using a language I know (Probably Python).
-3. Create a strong CI/CD pipeline.
-4. Create Database to store long term client and game history data. 
-5. Recreate Server in a more appropriate language (maybe Rust).
-6. Create a Website that acts as a client.
-7. Create a Desktop GUI Application.
-8. World Domination.
-9. Have a child named Steve.
+1. Update src/common code in order to pass testing
+2. Create Server using a language I know (Probably Python).
+3. Create a Simple Text Client using a language I know (Probably Python).
+4. Create a strong CI/CD pipeline.
+5. Create Database to store long term client and game history data. 
+6. Recreate Server in a more appropriate language (maybe Rust).
+7. Create a Website that acts as a client.
+8. Create a Desktop GUI Application.
+9. World Domination.
+10. Have a child named Steve.
 
 ## Directories
 
