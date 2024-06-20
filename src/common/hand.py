@@ -5,7 +5,7 @@ from typing import Self
 from src.common.card import Card
 
 class Hand():
-    """A Hand represents a set of cards owned by a player.
+    """A Hand represents a list of cards owned by a player.
 
     @param: cards: [Card]: List of cards from 0 to X
     """
