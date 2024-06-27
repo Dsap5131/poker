@@ -29,6 +29,102 @@ def test_invalid_constructor_bad_list() -> None:
               Card(Rank.JACK, Suit.CLUB)])
 
 
+def test_view_draw_pile() -> None:
+    """Test view draw pile."""
+
+    deck = Deck([Card(Rank.JACK, Suit.CLUB),
+                 Card(Rank.KING, Suit.SPADE),
+                 Card(Rank.TWO, Suit.HEART)])
+    expected = [Card(Rank.JACK, Suit.CLUB),
+                Card(Rank.KING, Suit.SPADE),
+                Card(Rank.TWO, Suit.HEART)]
+    assert deck.view_draw_pile() == expected, \
+            'view_draw_pile() not working'
+
+
+def test_view_draw_pile_muta() -> None:
+    """Test view_draw_pile mutability"""
+
+    deck = Deck([Card(Rank.JACK, Suit.CLUB),
+                 Card(Rank.KING, Suit.SPADE),
+                 Card(Rank.TWO, Suit.HEART)])
+    expected = [Card(Rank.JACK, Suit.CLUB),
+                Card(Rank.KING, Suit.SPADE),
+                Card(Rank.TWO, Suit.HEART)]
+    draw_pile = deck.view_draw_pile()
+    assert draw_pile == expected, 'Test setup failed.'
+
+    expected_muta = [Card(Rank.KING, Suit.SPADE),
+                     Card(Rank.KING, Suit.SPADE),
+                     Card(Rank.TWO, Suit.HEART)]
+    draw_pile[0] = Card(Rank.KING, Suit.SPADE)
+    assert draw_pile != expected and draw_pile == expected_muta, \
+            'Test setup failed.'
+
+    muta_deck = Deck([Card(Rank.KING, Suit.SPADE),
+                      Card(Rank.KING, Suit.SPADE),
+                      Card(Rank.TWO, Suit.HEART)])
+    orig_deck = Deck([Card(Rank.JACK, Suit.CLUB),
+                      Card(Rank.KING, Suit.SPADE),
+                      Card(Rank.TWO, Suit.HEART)])
+    assert deck == orig_deck and deck != muta_deck, \
+            'deck is mutable.'
+
+
+def test_view_discard_pile() -> None:
+    """Test view_discard_pile"""
+
+    deck = Deck([Card(Rank.JACK, Suit.CLUB),
+                 Card(Rank.KING, Suit.SPADE),
+                 Card(Rank.TWO, Suit.HEART)])
+    deck.draw(2)
+    expected = [Card(Rank.JACK, Suit.CLUB),
+                Card(Rank.KING, Suit.SPADE)]
+    discard_pile = deck.view_discard_pile()
+    assert discard_pile == expected, \
+            'view_discard_pile not working.' 
+    
+    deck_orig = Deck([Card(Rank.JACK, Suit.CLUB),
+                      Card(Rank.KING, Suit.SPADE),
+                      Card(Rank.TWO, Suit.HEART)])
+    deck_orig.draw(2)
+    assert deck_orig == deck, 'view_discard_pile not working.'
+
+
+def test_view_discard_pile_muta() -> None:
+    """Test view_discard_pile mutability"""
+
+    deck = Deck([Card(Rank.JACK, Suit.CLUB),
+                 Card(Rank.KING, Suit.SPADE),
+                 Card(Rank.TWO, Suit.HEART)])
+    deck.draw(2)
+    expected = [Card(Rank.JACK, Suit.CLUB),
+                Card(Rank.KING, Suit.SPADE)]
+    discard_pile = deck.view_discard_pile()
+    assert discard_pile == expected, \
+            'view_discard_pile not working.' 
+    
+    deck_orig = Deck([Card(Rank.JACK, Suit.CLUB),
+                      Card(Rank.KING, Suit.SPADE),
+                      Card(Rank.TWO, Suit.HEART)])
+    deck_orig.draw(2)
+    assert deck_orig == deck, 'view_discard_pile not working.'
+
+
+    discard_pile[0] = Card(Rank.KING, Suit.SPADE)
+    expected_muta = [Card(Rank.KING, Suit.SPADE),
+                     Card(Rank.KING, Suit.SPADE)]
+    assert discard_pile != expected and discard_pile == expected_muta, \
+            'Test setup failed.'
+
+    deck_muta = Deck([Card(Rank.KING, Suit.SPADE),
+                      Card(Rank.KING, Suit.SPADE),
+                      Card(Rank.TWO, Suit.HEART)])
+    deck_muta.draw(2)
+    assert deck == deck_orig and deck != deck_muta, \
+            'Deck is mutable'
+
+
 def test_draw() -> None:
     """Test basic usage of draw(n)."""
 
@@ -36,17 +132,42 @@ def test_draw() -> None:
                  Card(Rank.TWO, Suit.SPADE)])
     card = deck.draw()
 
-    assert card == Card(Rank.JACK, Suit.CLUB), \
+    assert card == [Card(Rank.JACK, Suit.CLUB)], \
             'draw not returning the top card.'
+    assert deck.view_discard_pile() == [Card(Rank.JACK, Suit.CLUB)], \
+            'simple draw not working.'
+    assert deck.view_draw_pile() == [Card(Rank.TWO, Suit.SPADE)], \
+            'simple draw not working.'
+
+
+def test_draw_consecutive() -> None:
+    """Test chained uses of draw(n)."""
+
+    deck = Deck([Card(Rank.JACK, Suit.CLUB),
+                 Card(Rank.TWO, Suit.SPADE)])
+    assert deck.draw() == [Card(Rank.JACK, Suit.CLUB)], \
+            'simple draw not working'
+    assert deck.view_draw_pile() == [Card(Rank.TWO, Suit.SPADE)], \
+            'simple draw not working'
+    assert deck.view_discard_pile() == [Card(Rank.JACK, Suit.CLUB)], \
+            'simple draw not working'
+
+    assert deck.draw() == [Card(Rank.TWO, Suit.SPADE)], \
+            'consecutive draw not working'
+    assert deck.view_draw_pile() == [], \
+            'consecutive draw not working'
+    assert deck.view_discard_pile() == [Card(Rank.JACK,Suit.CLUB),
+                                        Card(Rank.TWO,Suit.SPADE)], \
+            'consecutive draw not working'
 
 
 def test_multi_draw() -> None:
     """Test usage of draw(n) when drawing multiple."""
 
-    draw = Deck([Card(Rank.JACK, Suit.CLUB),
+    deck = Deck([Card(Rank.JACK, Suit.CLUB),
                  Card(Rank.TWO, Suit.SPADE),
                  Card(Rank.KING, Suit.HEART)])
-    cards = draw.get(2)
+    cards = deck.draw(2)
     expected_cards = [Card(Rank.JACK, Suit.CLUB),
                       Card(Rank.TWO, Suit.SPADE)]
 
@@ -66,18 +187,25 @@ def test_muta_multi_draw() -> None:
 
     assert cards == expected, 'Multi draw not working.'
 
+    deck_orig = Deck([Card(Rank.JACK, Suit.CLUB),
+                      Card(Rank.TWO, Suit.SPADE),
+                      Card(Rank.KING, Suit.HEART)])
+    deck_orig.draw(2)
+    assert deck == deck_orig, 'Test Setup failed.'    
+
     cards[0] = Card(Rank.KING, Suit.HEART)
     expected_muta = [Card(Rank.KING, Suit.HEART),
                      Card(Rank.TWO, Suit.SPADE)]
     assert cards != expected and cards == expected_muta, \
             'Test Setup failed.'
+    
+    deck_muta = Deck([Card(Rank.KING, Suit.HEART),
+                      Card(Rank.TWO, Suit.SPADE),
+                      Card(Rank.KING, Suit.HEART)])
+    deck_muta.draw(2)
 
-    deck_2 = Deck([Card(Rank.KING, Suit.HEART),
-                   Card(Rank.TWO, Suit.SPADE),
-                   Card(Rank.KING, Suit.HEART)])
-    deck_2.draw(2)
-
-    assert deck != deck_2, 'deck is mutable from draw.'
+    assert deck != deck_muta and deck == deck_orig, \
+            'deck is mutable from draw.'
 
 
 def test_draw_empty_deck() -> None:
@@ -129,7 +257,7 @@ def test_draw_size() -> None:
     deck.draw(1)
     assert deck.draw_size() == 1, 'Incorrect draw_size amount'
     deck.draw(1)
-    assert deck.draw_size() == 1, 'Incorrect draw_size amount'
+    assert deck.draw_size() == 0, 'Incorrect draw_size amount'
 
 
 def test_deck_size() -> None:
@@ -161,16 +289,18 @@ def test_shuffle() -> None:
     deck = Deck([Card(Rank.KING, Suit.HEART),
                  Card(Rank.TEN, Suit.SPADE)])
     actual_1 = deck.draw(2)
-    expected_1 = Deck([Card(Rank.KING, Suit.HEART),
-                       Card(Rank.TEN, Suit.SPADE)])
+    expected_1 = [Card(Rank.KING, Suit.HEART),
+                  Card(Rank.TEN, Suit.SPADE)]
     assert actual_1 == expected_1, 'initial draw not working'
 
     deck.shuffle()
     assert deck.deck_size() == deck.draw_size(), 'Deck not properly reset.'
     actual_2 = deck.draw(2)
-    expected_2 = Deck([Card(Rank.KING, Suit.HEART),
-                       Card(Rank.TEN, Suit.SPADE)])
-    assert actual_2 == expected_2, 'shuffle not working.'
+    deck_expected = Deck([Card(Rank.TEN, Suit.SPADE),
+                          Card(Rank.KING, Suit.HEART)])
+    expected_2 = deck_expected.draw(2)
+    assert actual_2 == expected_2 and deck == deck_expected, \
+            'shuffle not working.'
 
 
 def test_eq_other_obj() -> None:
