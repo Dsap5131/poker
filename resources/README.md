@@ -6,5 +6,4 @@ Resources used throughout the project.
 
 |   Location    |   About   |
 |   :---        |   :---    |
-|   [uml_designs](uml_designs/README.md) | Uml designs
 |   [dependencies](dependencies/README.md) | Code dependencies

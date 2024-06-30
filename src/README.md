@@ -2,10 +2,6 @@
 
 Source Code 
 
-## Mock Server Design
-
-![](../resources/uml_designs/mock_server_design.png)
-
 ## Directories
 
 |   Location    |   About   |
